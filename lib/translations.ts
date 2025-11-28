@@ -19,7 +19,8 @@ export const translations = {
       backendData: "Backend & Data",
       mobile: "Mobile",
       devopsTools: "DevOps & Tools",
-      cloudServices: "Cloud & Services"
+      cloudServices: "Cloud & Services",
+      testing: "Testing",
     },
 
     // Experience Section
@@ -140,7 +141,8 @@ export const translations = {
       backendData: "Backend & Data",
       mobile: "Mobil",
       devopsTools: "DevOps & Værktøjer",
-      cloudServices: "Cloud & Tjenester"
+      cloudServices: "Cloud & Tjenester",
+      testing: "Testing",
     },
 
     // Experience Section
