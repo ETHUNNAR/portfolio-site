@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 interface WorkExperienceCardProps {
   label: string;
   title: string;
@@ -5,10 +7,21 @@ interface WorkExperienceCardProps {
   points: string[];
 }
 
-export function WorkExperienceCard({ label, title, position, points }: WorkExperienceCardProps) {
-  const highlightNumbers = (text: string) =>
-    text.replace(/(\d+%|\d+\+)/g, '<span class="text-white font-medium">$1</span>');
+function highlightNumbers(text: string): ReactNode[] {
+  const parts = text.split(/(\d+%|\d+\+)/g);
+  return parts.map((part, index) => {
+    if (/^\d+%$|^\d+\+$/.test(part)) {
+      return (
+        <span key={index} className="text-white font-medium">
+          {part}
+        </span>
+      );
+    }
+    return part;
+  });
+}
 
+export function WorkExperienceCard({ label, title, position, points }: WorkExperienceCardProps) {
   return (
     <div className="glass rounded-2xl p-6 project-card">
       <div className="flex items-center gap-3 mb-4">
@@ -24,7 +37,7 @@ export function WorkExperienceCard({ label, title, position, points }: WorkExper
         {points.map((point, idx) => (
           <li key={idx} className="flex items-start gap-2">
             <span className="text-accent mt-1">▹</span>
-            <span dangerouslySetInnerHTML={{ __html: highlightNumbers(point) }} />
+            <span>{highlightNumbers(point)}</span>
           </li>
         ))}
       </ul>

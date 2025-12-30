@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { LanguageProvider } from "@/lib/language-context";
+import { AdminProvider } from "@/lib/admin-context";
 import { LanguageToggle } from "@/components/language-toggle";
+import { EditModeToolbar } from "@/components/admin/edit-mode-toolbar";
 
 export const metadata: Metadata = {
   title: "Vi The Ngo | Software Developer",
@@ -24,9 +26,12 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <body className="antialiased">
         <LanguageProvider>
-          <div className="noise-overlay" />
-          <LanguageToggle />
-          {children}
+          <AdminProvider>
+            <div className="noise-overlay" />
+            <LanguageToggle />
+            {children}
+            <EditModeToolbar />
+          </AdminProvider>
         </LanguageProvider>
       </body>
     </html>
