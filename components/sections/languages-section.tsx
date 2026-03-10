@@ -23,7 +23,7 @@ export function LanguagesSection({ title, languages }: LanguagesSectionProps) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {languages.map((item) => (
               <div key={item.lang} className="text-center p-4">
-                <span className="text-4xl mb-3 block">{item.flag}</span>
+                <span className="text-4xl mb-3 block" role="img" aria-label={`${item.lang} flag`}>{item.flag}</span>
                 <h3 className="text-xl font-display font-semibold text-white">
                   {item.lang}
                 </h3>

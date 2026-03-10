@@ -93,12 +93,14 @@ export function HeroSection({
               href="https://www.linkedin.com/in/vi-the-ngo/"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="LinkedIn profile"
               className="text-neutral-500 hover:text-accent transition-colors animated-underline"
             >
               <Linkedin className="w-5 h-5" />
             </a>
             <a
               href="mailto:vithe.ngo@gmail.com"
+              aria-label="Send email"
               className="text-neutral-500 hover:text-accent transition-colors animated-underline"
             >
               <Mail className="w-5 h-5" />
@@ -107,6 +109,7 @@ export function HeroSection({
               href="https://github.com"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="GitHub profile"
               className="text-neutral-500 hover:text-accent transition-colors animated-underline"
             >
               <Github className="w-5 h-5" />
