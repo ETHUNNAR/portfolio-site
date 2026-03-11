@@ -1,17 +1,13 @@
 "use client";
 
 import { useLanguage } from "@/lib/language-context";
-import { motion } from "framer-motion";
 
 export function LanguageToggle() {
   const { language, setLanguage } = useLanguage();
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="fixed top-6 right-6 z-50"
+    <div
+      className="fixed top-6 right-6 z-50 hero-fade-in"
       role="group"
       aria-label="Language selection"
     >
@@ -41,6 +37,6 @@ export function LanguageToggle() {
           DA
         </button>
       </div>
-    </motion.div>
+    </div>
   );
 }

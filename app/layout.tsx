@@ -6,6 +6,7 @@ import { AdminProvider } from "@/lib/admin-context";
 import { LanguageToggle } from "@/components/language-toggle";
 import { EditModeToolbar } from "@/components/admin/edit-mode-toolbar";
 import { Analytics } from "@vercel/analytics/react";
+import { SmoothScroll } from "@/components/smooth-scroll";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -107,27 +108,33 @@ export default function RootLayout({
       className={`dark ${cormorant.variable} ${sora.variable} ${jetbrainsMono.variable}`}
     >
       <head>
+        <link rel="preconnect" href="https://vitals.vercel-insights.com" />
+        <link rel="dns-prefetch" href="https://vitals.vercel-insights.com" />
+        <link rel="preconnect" href="https://fdcetspaxgscoanjivwt.supabase.co" />
+        <link rel="dns-prefetch" href="https://fdcetspaxgscoanjivwt.supabase.co" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
       <body className="antialiased">
-        <LanguageProvider>
-          <AdminProvider>
-            <a
-              href="#main-content"
-              className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[10000] focus:px-4 focus:py-2 focus:bg-accent focus:text-white focus:rounded-lg"
-            >
-              Skip to main content
-            </a>
-            <div className="noise-overlay" aria-hidden="true" />
-            <LanguageToggle />
-            {children}
-            <EditModeToolbar />
-            <Analytics />
-          </AdminProvider>
-        </LanguageProvider>
+        <SmoothScroll>
+          <LanguageProvider>
+            <AdminProvider>
+              <a
+                href="#main-content"
+                className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[10000] focus:px-4 focus:py-2 focus:bg-accent focus:text-white focus:rounded-lg"
+              >
+                Skip to main content
+              </a>
+              <div className="noise-overlay" aria-hidden="true" />
+              <LanguageToggle />
+              {children}
+              <EditModeToolbar />
+              <Analytics />
+            </AdminProvider>
+          </LanguageProvider>
+        </SmoothScroll>
       </body>
     </html>
   );
